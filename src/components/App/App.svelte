@@ -1,16 +1,21 @@
 <script>
+  import Router from "svelte-spa-router";
+
   import Header from "./../Header/Header.svelte";
+  import Jobs from "./../Jobs/Jobs.svelte";
+
+  const routes = {
+    "/job/:id": Jobs,
+  };
 </script>
 
 <main class="content">
   <Header />
 
   <div class="content__box">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ducimus nulla totam inventore, repellat
-      consequuntur deleniti, veritatis dolorum nesciunt eius repudiandae molestias ipsa numquam deserunt libero, quae
-      placeat quaerat. Doloribus?
-    </p>
+    <a href="#/job/{123}">jobs</a>
+
+    <Router {routes} />
   </div>
 </main>
 
