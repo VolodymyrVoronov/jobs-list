@@ -2,12 +2,12 @@
   import { onMount } from "svelte";
   import { ScaleOut } from "svelte-loading-spinners";
 
-  import fetchJobs from "../../store/store.js";
+  import getJobs from "../../store/store.js";
 
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
 
-  const [data, loading, error, getMoreJobs] = fetchJobs(1);
+  const [data, loading, error, getMoreJobs] = getJobs(1);
 </script>
 
 <main class="content">
