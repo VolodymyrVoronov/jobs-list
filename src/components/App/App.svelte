@@ -1,20 +1,25 @@
 <script>
   import { onMount } from "svelte";
+  import { ScaleOut } from "svelte-loading-spinners";
 
   import fetchJobs from "../../store/store.js";
 
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
 
-  const [data, loading, error, get] = fetchJobs(1);
-
-  $: console.log($data);
+  const [data, loading, error, getMoreJobs] = fetchJobs(1);
 </script>
 
 <main class="content">
   <Header />
   <div class="content__box">
-    <Jobs />
+    {#if $loading}
+      <ScaleOut color="#5da4a4" size="150" />
+    {:else if $error}
+      Error: {$error}
+    {:else}
+      <Jobs jobs={$data} />
+    {/if}
   </div>
 </main>
 

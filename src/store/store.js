@@ -7,12 +7,12 @@ export default function (page) {
   const error = writable(false);
   const data = writable({});
 
-  async function get(page) {
+  async function getMoreJobs(pageMore) {
     loading.set(true);
     error.set(false);
 
     try {
-      const response = await appAPI.getJobs(page);
+      const response = await appAPI.getJobs(pageMore || page);
 
       if (response.status === 200) {
         console.log(response.data);
@@ -24,7 +24,7 @@ export default function (page) {
     loading.set(false);
   }
 
-  get();
+  getMoreJobs();
 
-  return [data, loading, error, get];
+  return [data, loading, error, getMoreJobs];
 }

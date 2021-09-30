@@ -5,7 +5,7 @@ const instanceAPI = axios.create({
 });
 
 export const appAPI = {
-  getJobs(page = 1) {
+  getJobs(page) {
     return instanceAPI.get(`/jobs?page=${page}`);
   },
 
