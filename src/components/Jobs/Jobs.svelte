@@ -1,7 +1,9 @@
-<script></script>
+<script>
+  import Job from "./../Job/Job.svelte";
+</script>
 
 <div class="jobs">
-  <p>Jobs</p>
+  <Job />
 </div>
 
 <style>

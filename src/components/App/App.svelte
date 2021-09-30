@@ -1,21 +1,20 @@
 <script>
-  import Router from "svelte-spa-router";
+  import { onMount } from "svelte";
+
+  import fetchJobs from "../../store/store.js";
 
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
 
-  const routes = {
-    "/job/:id": Jobs,
-  };
+  const [data, loading, error, get] = fetchJobs(1);
+
+  $: console.log($data);
 </script>
 
 <main class="content">
   <Header />
-
   <div class="content__box">
-    <a href="#/job/{123}">jobs</a>
-
-    <Router {routes} />
+    <Jobs />
   </div>
 </main>
 
