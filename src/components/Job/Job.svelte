@@ -165,7 +165,6 @@
     display: flex;
     justify-content: center;
 
-    margin-top: auto;
     padding: 10px 0;
 
     font-size: 18px;
