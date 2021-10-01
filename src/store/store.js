@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 
 import { appAPI } from "./../api/api.js";
 
-export default function getJobs(page) {
+export default function getJobs(page = 1) {
   const loading = writable(false);
   const error = writable(false);
   const data = writable({});

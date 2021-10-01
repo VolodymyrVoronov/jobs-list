@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte";
   import { ScaleOut } from "svelte-loading-spinners";
 
   import getJobs from "../../store/store.js";
@@ -7,7 +6,7 @@
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
 
-  const [data, loading, error, getMoreJobs] = getJobs(1);
+  const [data, loading, error, getMoreJobs] = getJobs();
 </script>
 
 <main class="content">
@@ -27,17 +26,13 @@
   .content {
     display: flex;
     flex-direction: column;
-
-    height: 100vh;
-
-    background-color: #f0fafb;
   }
 
   .content__box {
     display: flex;
     justify-content: center;
 
-    max-width: 1200px;
+    width: 1200px;
 
     margin: 0 auto;
     margin-top: 50px;
