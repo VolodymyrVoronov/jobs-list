@@ -15,7 +15,6 @@ export default function getJobs(page = 1) {
       const response = await appAPI.getJobs(pageMore || page);
 
       if (response.status === 200) {
-        console.log(response.data);
         data.set(response.data.results);
       }
     } catch (e) {

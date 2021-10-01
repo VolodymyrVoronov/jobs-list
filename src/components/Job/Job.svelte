@@ -28,7 +28,7 @@
     <div class="job__flex-box">
       <p class="job__level">{level.name}</p>
       &#9866;
-      <p class="job__location">{location.name}</p>
+      <p class="job__location">{location === undefined ? "Unknown" : location.name}</p>
     </div>
   </div>
   <button on:click={onShowButtonClick} class="job__button"
@@ -40,8 +40,8 @@
     {/if}
   </button>
   {#if showDesc}
-    <p in:fade out:fade|local class="job__desc">{@html desc}</p>
-    <button on:click={onShowButtonClick} class="job__button"
+    <p in:fade|local out:fade|local class="job__desc">{@html desc}</p>
+    <button on:click={onShowButtonClick} class="job__button" type="button"
       >Show
       {#if showDesc}
         less

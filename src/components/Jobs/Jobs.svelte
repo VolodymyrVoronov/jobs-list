@@ -1,14 +1,12 @@
 <script>
-  import { fly } from "svelte/transition";
+  import { fade } from "svelte/transition";
 
   import Job from "./../Job/Job.svelte";
 
   export let jobs;
-
-  console.log(jobs);
 </script>
 
-<div transition:fly={{ x: 200, duration: 2000 }} class="jobs">
+<div transition:fade={{ duration: 2000 }} class="jobs">
   {#each jobs as job (job.id)}
     <Job
       id={job.id}

@@ -5,8 +5,17 @@
 
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
+  import Footer from "./../Footer/Footer.svelte";
 
   const [data, loading, error, getMoreJobs] = getJobs();
+
+  const getMoreJobsItems = (page) => {
+    getMoreJobs(page);
+    window.scrollTo({
+      top: 100,
+      behavior: "smooth",
+    });
+  };
 </script>
 
 <main class="content">
@@ -20,6 +29,7 @@
       <Jobs jobs={$data} />
     {/if}
   </div>
+  <Footer {loading} {getMoreJobsItems} />
 </main>
 
 <style>
@@ -31,6 +41,8 @@
   .content__box {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     width: 1200px;
 
