@@ -4,9 +4,10 @@
   import Job from "./../Job/Job.svelte";
 
   export let jobs;
+  export let showMoreJobDetails;
 </script>
 
-<div transition:fade={{ duration: 2000 }} class="jobs">
+<div transition:fade={{ duration: 500 }} class="jobs">
   {#each jobs as job (job.id)}
     <Job
       id={job.id}
@@ -16,6 +17,7 @@
       desc={job.contents}
       name={job.name}
       pubDate={job.publication_date}
+      {showMoreJobDetails}
     />
   {/each}
 </div>

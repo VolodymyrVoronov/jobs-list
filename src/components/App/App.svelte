@@ -1,11 +1,12 @@
 <script>
   import { ScaleOut } from "svelte-loading-spinners";
 
-  import getJobs from "../../store/store.js";
+  import { getJobs } from "../../store/store.js";
 
   import Header from "./../Header/Header.svelte";
   import Jobs from "./../Jobs/Jobs.svelte";
   import Footer from "./../Footer/Footer.svelte";
+  import Modal from "./../Modal/Modal.svelte";
 
   const [data, loading, error, getMoreJobs] = getJobs();
 
@@ -16,7 +17,23 @@
       behavior: "smooth",
     });
   };
+
+  let showModal = false;
+  let jobIdForDetails;
+
+  let showMoreJobDetails = (jobId) => {
+    showModal = !showModal;
+    jobIdForDetails = jobId;
+  };
+
+  let closeModal = () => {
+    showModal = !showModal;
+  };
 </script>
+
+{#if showModal}
+  <Modal {jobIdForDetails} on:click={showMoreJobDetails} {closeModal} />
+{/if}
 
 <main class="content">
   <Header />
@@ -26,7 +43,7 @@
     {:else if $error}
       Error: {$error}
     {:else}
-      <Jobs jobs={$data} />
+      <Jobs jobs={$data} {showMoreJobDetails} />
     {/if}
   </div>
   <Footer {loading} {getMoreJobsItems} />

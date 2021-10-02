@@ -9,7 +9,7 @@ export const appAPI = {
     return instanceAPI.get(`/jobs?page=${page}`);
   },
 
-  getJobDitails(id) {
-    return instanceAPI.get(`:${id}`);
+  getJobDetails(id) {
+    return instanceAPI.get(`/jobs/${id}`);
   },
 };

@@ -9,12 +9,18 @@
   export let name;
   export let pubDate;
 
+  export let showMoreJobDetails;
+
   const convertedDate = new Date(pubDate).toUTCString().slice(4, 16);
 
   let showDesc = false;
 
   const onShowButtonClick = () => {
     showDesc = !showDesc;
+  };
+
+  const onMoreInfoButtonClick = () => {
+    showMoreJobDetails(id);
   };
 </script>
 
@@ -41,14 +47,7 @@
   </button>
   {#if showDesc}
     <p in:fade|local out:fade|local class="job__desc">{@html desc}</p>
-    <button on:click={onShowButtonClick} class="job__button" type="button"
-      >Show
-      {#if showDesc}
-        less
-      {:else}
-        more
-      {/if}
-    </button>
+    <button on:click={onMoreInfoButtonClick} class="job__button" type="button">More Info</button>
   {/if}
 </section>
 
