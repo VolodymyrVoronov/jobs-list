@@ -1,6 +1,6 @@
 ###### Jobs list
 
-Online preview: [Jobs list](https://volodymyrvoronov.github.io/ "Jobs list")
+Online preview: [Jobs list](https://volodymyrvoronov.github.io/jobs-list/ "Jobs list")
 
 To install the project on your pc/laptop just clone this repository and take following steps:
  ### `1. npm install`
